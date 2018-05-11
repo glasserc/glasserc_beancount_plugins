@@ -2,20 +2,6 @@
 glasserc Beancount Plugins
 ==========================
 
-
-.. image:: https://img.shields.io/pypi/v/glasserc_beancount_plugins.svg
-        :target: https://pypi.python.org/pypi/glasserc_beancount_plugins
-
-.. image:: https://img.shields.io/travis/glasserc/glasserc_beancount_plugins.svg
-        :target: https://travis-ci.org/glasserc/glasserc_beancount_plugins
-
-.. image:: https://readthedocs.org/projects/glasserc-beancount-plugins/badge/?version=latest
-        :target: https://glasserc-beancount-plugins.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
-
 Some beancount plugins of my own
 
 
@@ -23,10 +9,26 @@ Some beancount plugins of my own
 * Documentation: https://glasserc-beancount-plugins.readthedocs.io.
 
 
-Features
---------
+Plugins
+-------
 
-* TODO
+* add_payee_from_narration: a quick hack to auto-add payees based on a
+  string in the narration. This is useful when dealing with
+  transactions imported from a credit card company, where you may have
+  semi-garbled company names as the only narration.
+
+  Usage::
+
+    plugin "glasserc_beancount_plugins.add_payee_from_narration" "AMZN: Amazon"
+
+  This will automatically add "Amazon" as the payee for any
+  transactions which contain "AMZN" in the narration. This might be
+  convenient when you want to tag a whole bunch of transactions with
+  the same billing descriptor as going to the same payee. (Be careful!
+  Some merchants may have several billing descriptors, and the string
+  you choose, in this case AMZN, may match several different lines of
+  business, such as Amazon Payments as well as Amazon.com.)
+
 
 Credits
 -------
